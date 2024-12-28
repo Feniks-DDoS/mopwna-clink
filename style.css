@@ -353,7 +353,7 @@
  .header-logo {
     position: relative;
     transition: 0.2s;
-    width: min(421px, 21.92vw); 
+    width: min(421px, 25.92vw); 
     height: min(274px, 14.72vh);
  }
 .header-logo:hover {
@@ -363,7 +363,7 @@
     position: absolute;
     top: 2vh;
     width: clamp(160px, 16.87vw, 324px);
-    height:clamp(60px, 8.41vh, 200px);
+    height:clamp(40px, 7.41vh, 200px);
 }
  .header-menu {
     position: relative;
@@ -372,7 +372,10 @@
     font-size: min(25px, 1.30vw);
  }
  .header-menu-list {
-    display: flex;
+   display: grid;
+   grid-template-columns: repeat(1, 1fr);
+   grid-template-rows: repeat(1, 1fr);
+   grid-auto-flow: column;
     column-gap: 40px;
  }
  .visually-hidden {
@@ -1115,153 +1118,71 @@
 
 
 
-
-
-
-
-
-
-
-
-/* 
-
-@media (max-width:1920px) {
-    .header-menu {
-        margin-right: -28rem;
-        
-    }
-    .header-menu-list {
-        font-size: 20px;
-        column-gap: 40px;
-    }
-    .header {
-        min-height: 60rem;
-        padding-inline: 15px;
-        column-gap: 45px;
-    }
-    .header-text-decoration {
-        margin-right:15rem;
-        margin-top: 18rem;
-        text-wrap: nowrap;
-     
-    }
-    .header-text-1 {
-        font-size: 70px;
-    }
-    .header-text-2 {
-        margin-top: 15rem;
-        padding-block: 40px;
-        font-size: 33px;
-    }
-    .header-text-3 {
-        text-wrap: nowrap;
-        margin-left: 9vw;
-    }
-    .header-start-btn {
-        margin-top: 5rem;
-        height: 76px;
-        width: 207px;
-        font-size: 24px;   
-    }
-    .header-decoration-sponsor {
-        margin-block: 55rem;
-        width: 934px;
-        height: 125px;
-        flex-shrink: 0;
-    }
-    .header-img-decoration-1 {
-        width: 35vw;
-        aspect-ratio: 1;
-    }
-    .header-img-decoration-2 {
-        width: 15vw;
-        aspect-ratio: 1;
-        margin-right: 5rem;
-    }
-}
 @media (max-width:1600px) {
-    .header-menu {
-        margin-right: -15rem;
-        
-    }
-    .header-text-decoration {
-        margin-right:11rem;
-        margin-top: 14rem;
-    }
-    .header-text-1 {
-        font-size: 60px;
-    }
-    .header-text-2 {
-        margin-top: 13rem;
-        font-size: 29px;
-    }
-    .header-img-decoration-1 {
-        width: 32vw;
-        aspect-ratio: 1;
-        margin-left: -35vw;
-    }
-}
-@media (max-width:1345px) {
-    .header-menu {
-        margin-right: -8rem;
-        
-    }
-    .header-text-decoration {
-        margin-right:4rem;
-        margin-top: 14rem;
-    }
-    .header-text-1 {
-        font-size: 55px;
-    }
-    .header-text-2 {
-        margin-top: 11rem;
-        font-size: 26px;
-    }
-    .header-img-decoration-1 {
-        margin-top: 18vh;
-        margin-left: -35vw;
-    }
-    .header-img-decoration-2 {
-        margin-top: 12vh;
-        margin-left: -27vw;
-    }
-}
-@media (max-width:1120px) {
-    .header-text-decoration {
-        margin-right: -2rem;
-        margin-top: 14rem;
-    }
-    .header-text-1 {
-        font-size: 50px;
-    }
-    .header-text-2 {
-        margin-top: 11rem;
-        font-size: 24px;
-    }
-    .header-start-btn {
-        width: 15vw;
-    }
-    .header-img-decoration-2 {
-        margin-top: 14vh;
-        margin-left: -27vw;
-    }
-    .header-decoration-sponsor {
-        width: 734px;
-        margin-block: 45rem;
-    }
-    .header-text-3 {
-        margin-inline: 8vw;
-    }
     .header {
         min-height: 50rem;
     }
+    .header-decoration-sponsor {
+        margin-top: 750px;
+    }
+    .header-logo img {
+        width: clamp(160px, 25.87vw, 324px);
+        height:clamp(40px, 15.41vh, 200px);
+    }
+    .header-text-3 {
+        margin-top: -5vh;
+    }
 }
-
- */
-
-
-
-
+@media (max-width:1400px) {
+    .header {
+        min-height: 70vh;
+    }
+    .header-decoration-sponsor {
+        margin-top: 50rem;
+    }
+    .header-text-decoration {
+        margin-right:550px ;
+    }
+    .header-img-decoration-2 {
+        margin-top: 17vh;
+    }
+}
+@media (max-width:1000px) {
+    .header {
+        min-height: 55vh;
+    }
+    .header-decoration-sponsor {
+        margin-top: 38rem;
+    }
+    .header-text-decoration {
+        margin-right:350px ;
+    }
+}
+@media (max-width:600px) {
+    .header {
+        min-height: 45vh;
+    }
+    .header-decoration-sponsor {
+        margin-top: 32rem;
+    }
+    .header-text-decoration {
+        margin-right:250px ;
+        margin-top: 200px;
+    }
+    .header-text-2 {
+        margin-block: 20px;
+    }
+    .header-img-decoration-2 {
+        margin-top: 19vh;
+    }
+    .header-img-decoration {
+        margin-top: -5vh;
+    }
+    .header-menu-list {
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 15px;
+    }
+}
 
 
 
