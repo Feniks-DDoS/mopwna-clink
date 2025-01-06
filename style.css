@@ -714,18 +714,21 @@ html {
   border:none;
   border-radius: var(--border-radius-login);
   background-color: #EFF9FC;
+  padding-left: 0.5rem;
 }
 .field-control.input {
   height: 3.125rem;
+  padding-bottom: 2px;
+
 }
 .field-control.textarea {
   height: 5rem;
+  padding-top: 5px;
 }
 .field-control::placeholder {
   font-size: min(0.7vw,14px);
   color: var(--color-dark-grey);
-  padding-left: 1rem;
-  padding-top: 1rem;
+  padding-top: 8px;
 }
 .contact-us-bottom {
   width: 100%;
@@ -843,8 +846,6 @@ html {
 .field-control.mobile::placeholder {
   font-size: min(1.5vw, 20px);
   color: var(--color-dark-grey);
-  padding-left: 1rem;
-  padding-top: 1rem;
 }
 .field.mobile {
   width: 100%;
