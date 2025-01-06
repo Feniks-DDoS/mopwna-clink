@@ -1173,9 +1173,6 @@ html {
 }
 }
 @media (max-width: 650px) {
-  .navigation {
-    padding-inline: 2rem;
-  }
   .section-conteiner {
     padding-top:3rem ;
     padding-inline: 2rem;
