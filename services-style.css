@@ -615,7 +615,17 @@ html {
 
   @media (max-width:900px) {
     .services-conteiner::before {
-        height: 74%;
+        content: "";
+        position: absolute;
+        top: 13%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 94%;
+        background-image: url(services-icons/point.svg);
+        background-position: center;
+        background-repeat: repeat;
       }
     .services-list-mobile {
         display: inherit;
