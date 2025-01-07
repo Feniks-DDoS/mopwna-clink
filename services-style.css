@@ -1,0 +1,623 @@
+
+@font-face {
+    font-family: 'Inter 28pt';
+    src: url('fonts/Inter28pt-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Bold.woff2") format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Medium.woff2") format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-SemiBold.woff2") format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url("fonts/Montserrat-Regular.woff2") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/**
+  Нормализация блочной модели
+ */
+ *,
+ ::before,
+ ::after {
+   box-sizing: border-box;
+ }
+ 
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ :where(address[class]) {
+   font-style: normal;
+ }
+ 
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 24px;
+ 
+   margin-block: 0;
+ }
+ 
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ /* p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ } */
+ 
+ 
+ /**
+   Упрощаем работу с изображениями и видео
+  */
+ img,
+ video {
+   height: auto;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select,
+ button {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+   /**
+     Убираем скачок интерфейса по горизонтали
+     при появлении / исчезновении скроллбара
+    */
+   scrollbar-gutter: stable;
+ }
+ 
+ /**
+   Плавный скролл
+  */
+ html,
+ :has(:target) {
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+ }
+ 
+ /**
+   Нормализация высоты элемента ссылки при его инспектировании в DevTools
+  */
+ a:where([class]) {
+   display: inline-flex;
+ }
+ 
+ /**
+   Курсор-рука при наведении на элемент
+  */
+ button,
+ label {
+   cursor: pointer;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+  */
+ /* [fill] { fill: currentColor }
+ [stroke] { stroke: currentColor } */
+ 
+ /**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+ svg * {
+   transition-property: fill, stroke;
+ }
+ 
+ /**
+   Приведение рамок таблиц в классический 'collapse' вид
+  */
+ :where(table) {
+   border-collapse: collapse;
+   border-color: currentColor;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   *,
+   ::before,
+   ::after {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ } 
+ .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+html {
+	overflow-x: clip;
+
+	scrollbar-gutter: stable;
+	scroll-behavior: smooth;
+}
+ :root {
+      --color-dark:#000000;
+      --color-light:#FFFFFF;
+      --color-dark-grey:#A6A6A6;
+      --color-light-gray:#FFFEFE;
+      --color-blue:#0076E0;
+
+
+
+      --border-radius: 30px;
+      --border-radius-button: 50px;
+    
+      --button-height: 54px;
+      --button-width: 172px;
+
+      --conteiner-width: 1920px;
+      --conteiner-padding-x: 15px;
+
+      --font-family-base: "Montserrat", "sans-serif";
+
+      --transition-duration: 0.2s;
+ }
+ a {
+  list-style: none;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: normal;
+ }
+.button {
+    height: 3.375rem;
+    width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-dark);
+    border-radius: 3.125rem;
+    box-shadow: 0px 4px 30px 0px rgba(255, 255, 255, 0.50);
+    background-color: var(--color-light);
+}
+ img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+} 
+.page {
+  background-image: url(images/body_background_img.png);
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 0;
+ 
+}
+.header {
+    background-image: url(icons/services-header-back.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 10rem;
+    filter: drop-shadow(0 2px 5px var(--color-dark));
+    
+  }
+  .header-logo {
+      height: 6rem;
+      max-width: 12.6875rem;
+  }
+  .header-logo img {
+      margin-left: -2.6rem;
+      min-width: 22.6875rem;
+  }
+  .conteiner {
+    max-width: 77rem;
+      margin-left: auto;
+    margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-navigation-start,
+  .header-navigation-end {
+    display: flex;
+  }
+  .header-navigation-end {
+    justify-content: end;
+    align-items: center;
+  }
+  .header-navigation-start {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .header-menu-list {
+    display: flex;
+    column-gap: 3rem;
+  }
+  .header-menu-link {
+    color: var(--color-light);
+    font-size: min(2vw,20px);
+  }
+  .header-menu-link:hover,
+  .header-menu-link:focus-visible,
+  .header-menu-link.is-current {
+      text-decoration-color: var(--color-dark);
+  }
+  .header-menu-link {
+      text-decoration-thickness: 0.125rem;
+      text-decoration-style: solid;
+      text-decoration-color: transparent;
+      text-underline-offset: 0.25rem;
+  
+      transition: 0.2s linear;
+      transition-property: color, text-decoration-color;
+  }
+  .header-menu-link:hover,
+  .header-menu-link:focus-visible,
+  .header-menu-link.is-current {
+      text-decoration-color: currentColor;
+  }
+  .services-conteiner {
+    max-width: 80.3rem;
+    min-height: 100dvh;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    margin-bottom: 6.25rem;
+
+    background-color: var(--color-blue);
+
+    border-radius: var(--border-radius); 
+    box-shadow:0px 4px 50px 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+  .services-conteiner::after {
+   content: "";
+   position: absolute;
+   top: -1px;
+   right: -5rem;
+   width: 683px;
+   height: 492px;
+   background-image: url(services-images/brand-all-images-1-modified.png);
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: contain;
+   z-index: 100;
+   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+  .card-wrapper {
+    max-width: 42rem;
+    z-index: 200;
+    padding-inline: 1.8rem;
+    padding-top: 3.43rem;
+    padding-bottom: 5rem;
+    justify-content: center;
+}
+  .services-title {
+    padding-top: 8.5rem;
+    padding-bottom: 4rem;
+
+    max-width: 85.3rem;
+    margin-inline: auto;
+    padding-inline: 4rem;
+
+    font-weight: 700;
+    font-size: min(2.9vw,56px);
+    text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.50);
+  }
+  .services-card-subtitle {
+    color: var(--color-light);
+    text-shadow: 0 4px 30px rgba(0 , 0, 0, 0.25);
+    font-size: min(1.6vw,32px);
+    font-weight: 700;
+  }
+  .services-card-desription {
+    color: #fffbfa;
+    text-align: justify;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: min(1vw,20px);
+    font-weight: 400;
+    line-height: 2.5rem;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+
+    padding-block: 3.125rem;
+  }
+ .services-card-link {
+    color: var(--color-dark);
+    font-size: min(1vw,20px);
+    font-weight: 700;
+    padding: 15px 26px;
+    text-decoration: none;
+    justify-self: center;
+ }
+.services-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.services-card.reverce {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.services-card-image {
+    z-index: 200;
+    filter: drop-shadow( 0px 4px 4px 0px rgba(0, 0, 0, 0.25));
+}
+
+.services-list-mobile {
+    display: none;
+  }
+
+
+
+
+
+
+
+.footer {
+    background-color: var(--color-light);
+    font-size: min(1.2vw,18px);
+    font-weight: 500;
+    font-family: 'Inter 28pt';
+  
+    box-shadow: 0px 4px 50px 0px rgba(0, 0, 0, 0.25);
+
+    min-height:max-content;
+  }
+  .footer-conteiner {
+    max-width: 90.5rem;
+    min-height: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-inline: 5rem;
+  
+    padding-top: 2rem;
+  }
+  .footer-media-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4,1fr);
+  }
+  .footer-media-link {
+    transition: filter var(--transition-duration);
+  }
+  .footer-media-link:hover {
+    filter: drop-shadow(0 2px 2px var(--color-dark));
+  }
+  .information-company-list {
+    display: grid;
+    gap: 1rem 2rem;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows: repeat(4,1fr);
+  }
+  .information-company-link {
+    color: var(--color-dark-grey);
+  }
+  
+  .information-company-link:hover,
+  .information-company-link:focus-visible,
+  .information-company-link.is-current {
+      text-decoration-color: var(--color-dark);
+  }
+  .information-company-link {
+      text-decoration-thickness: 0.125rem;
+      text-decoration-style: solid;
+      text-decoration-color: transparent;
+      text-underline-offset: 0.25rem;
+  
+      transition: 0.2s linear;
+      transition-property: color, text-decoration-color;
+  }
+  .information-company-link:hover,
+  .information-company-link:focus-visible,
+  .information-company-link.is-current {
+      text-decoration-color: currentColor;
+  }
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    min-height: 10rem;
+  }
+
+  
+
+
+  @media (max-width:900px) {
+    .services-list-mobile {
+        display: inherit;
+      }
+      .services-list {
+        display: none;
+      }
+      .footer-navigation {
+        column-gap: 2rem;;
+    }
+    .footer-conteiner {
+        padding-inline: 2rem;
+      
+        padding-top: 2rem;
+      }
+    .footer-media-list {
+        grid-template-columns: repeat(2,1fr);
+      }
+      .footer {
+        font-size: min(1.5vw,18px);
+      }
+      .information-company-list {
+        column-gap: 0.5rem;
+      }
+      .footer-media-link img {
+        width: 50px;
+        aspect-ratio: 1;
+      }
+      .services-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .services-card.reverce {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .services-card-subtitle {
+        font-size: min(2.6vw,32px);
+      }
+      .services-card-desription {
+        font-size: min(2vw,20px);
+      }
+      .services-card-link {
+        font-size: min(1.5vw,20px);
+     }
+     .services-title {
+        font-size: min(3.4vw,56px);
+      }
+      .header-menu-list {
+        column-gap: 1rem;
+      }
+      .header-logo {
+        height: 4rem;
+    }
+    .header-logo img {
+        margin-left: -4.6rem;
+    }
+  }
+  @media (max-width:440px) {
+    .header-logo {
+        height: 3rem;
+    }
+    .header-logo img {
+        margin-left: -4.6rem;
+        min-width: 18rem;
+    }
+    .header-navigation {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .header-menu-list {
+        padding-top: 2rem;
+        padding-inline: 2rem;
+        column-gap: 2rem;
+      }
+      .header-menu-link {
+        font-size: min(3vw,20px);
+      }
+  }

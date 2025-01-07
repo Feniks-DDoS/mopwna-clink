@@ -379,7 +379,6 @@ html {
 .header-menu-link.is-current {
 	text-decoration-color: currentColor;
 }
-
 .section-slogan {
   background-image: url(icons/header_background.svg);
   background-position: top;
@@ -388,7 +387,7 @@ html {
 
   color: var(--color-light);
   min-height: 100dvh;
-	max-height: 59.3125rem;
+	max-height: 51.3125rem;
   padding-top: 6rem;
 
   align-items: center;
@@ -443,6 +442,8 @@ html {
   font-size: 24px;
   font-weight: 600;
   text-align: center;
+  margin-top: -3rem;
+  padding-bottom: 10rem;
 }
 .section-sponsor-image {
   display: grid;
@@ -980,6 +981,7 @@ html {
 
 
 
+
 @media (max-width:1500px) {
   .logo-image {
     margin-top: -40.2vh;
@@ -1040,6 +1042,9 @@ html {
 .section-about-us {
   margin-top: -12rem;
 }
+.section-sponsor-text {
+  margin-top: 1rem;
+}
 }
 @media (max-width: 880px) {
   .footer-conteiner {
@@ -1087,6 +1092,7 @@ html {
     }
     .section-sponsor-text {
       font-size: 1rem;
+      padding-bottom: 2rem;
     }
     .section-sponsor-image {
       gap: 1px;
@@ -1314,3 +1320,5 @@ html {
     padding-top: 8rem;
   }
 }
+
+
