@@ -326,7 +326,7 @@ html {
 	max-width: 12.6875rem;
 }
 .header-logo img {
-	margin-left: -4.6rem;
+	margin-left: -2.6rem;
 	min-width: 22.6875rem;
 }
 .conteiner {
@@ -390,13 +390,16 @@ html {
 	max-height: 51.3125rem;
   padding-top: 6rem;
 
-  align-items: center;
+ 
 }
 .section-conteiner {
   display: grid;
   grid-template-columns: repeat(2, 3fr);
   grid-template-rows: repeat(1, 2fr);
   align-items: center;
+}
+.section-text {
+  justify-self: center;
 }
 .section-title {
   font-size: 3.125rem;
@@ -449,7 +452,7 @@ html {
   border-radius: 1.1875rem;
   list-style: none;
   background-color: var(--color-light);
-  box-shadow: 0.6875rem, .9375rem,.125rem rgba(0 , 0, 0, 0.11);
+  filter: drop-shadow(2px 4px 4px  rgba(0 , 0, 0, 0.30));
 }
 .section-sponsor p {
   margin: 0;
@@ -1355,7 +1358,9 @@ html {
     flex-wrap: wrap;
     column-gap: 0.5rem;
   }
-  
+  .sponsor-horizontal-list {
+    padding: 1rem;
+  }
 }
 @media (max-width:380px) {
    .about-us-image {
@@ -1375,5 +1380,8 @@ html {
     font-size: min(1.8vw,20px);
     padding: 0;
    }
+   .sponsor-horizontal-list {
+    padding: 0.5rem;
+  }
 }
 
