@@ -978,8 +978,71 @@ html {
 
 
 
+@media (hover: hover) {
+  .contact-us-button:hover {
+    opacity: 0.8;
+  }
+  .start-now-button:hover {
+    opacity: 0.8;
+  }
+  .app-image-link:hover {
+    filter: drop-shadow(0 2px 3px var(--color-dark));
+  }
+  .footer-media-link:hover {
+    filter: drop-shadow(0 2px 2px var(--color-dark));
+  }
+  .header-menu-link:hover,
+.header-menu-link:focus-visible,
+.header-menu-link.is-current {
+	text-decoration-color: var(--color-dark);
+}
+.header-menu-link:hover,
+.header-menu-link:focus-visible,
+.header-menu-link.is-current {
+	text-decoration-color: currentColor;
+}
+.information-company-link:hover,
+.information-company-link:focus-visible,
+.information-company-link.is-current {
+	text-decoration-color: var(--color-dark);
+}
+.information-company-link:hover,
+.information-company-link:focus-visible,
+.information-company-link.is-current {
+	text-decoration-color: currentColor;
+}
+}
 
-
+@media (hover: none) {
+  .contact-us-button:hover {
+    opacity: 1;
+  }
+  .start-now-button:hover {
+    opacity: 1;
+  }
+  .app-image-link:hover {
+    filter: none;
+  }
+  .footer-media-link:hover {
+    filter: none;
+  }
+  .header-menu-link:hover,
+  .header-menu-link:focus-visible {
+    text-decoration-color: transparent;
+  }
+  .header-menu-link:hover,
+  .header-menu-link:focus-visible {
+    text-decoration-color: none;
+  }
+  .information-company-link:hover,
+.information-company-link:focus-visible {
+	text-decoration-color: transparent;
+}
+.information-company-link:hover,
+.information-company-link:focus-visible {
+	text-decoration-color: none;
+}
+}
 
 
 @media (max-width:1500px) {
@@ -1319,6 +1382,30 @@ html {
   .about-us-image {
     padding-top: 8rem;
   }
+  .header-menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.5rem;
+  }
+  
 }
-
+@media (max-width:380px) {
+   .about-us-image {
+     padding-top: 14rem;
+     width: 100px;
+     aspect-ratio: 1;
+   }
+   .about-us-title {
+    font-size: min(2vw,50px);
+    padding: 0;
+    
+   }
+   .about-us-subtitle span {
+    font-size: min(2.1vw, 22px);
+   }
+   .about-us-subtitle {
+    font-size: min(1.8vw,20px);
+    padding: 0;
+   }
+}
 
